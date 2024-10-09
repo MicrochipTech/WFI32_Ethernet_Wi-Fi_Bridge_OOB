@@ -258,10 +258,10 @@ optimizing their bridge boards performance.
 <img src="images/image12.png" width=480>
 </p>
 
-      * Enter command "ipconfig /release" and "ipconfig /renew"
-      * Remove the Ethernet cable, restart the DUT and connect back Ethernet cable to PC
-      * After \~30sec, enter "ipconfig" command from PC command prompt
-      * Repeat 1-4 above steps until you get IP address range start from "192.168. \* . \* ".
+      1 Enter command "ipconfig /release" and "ipconfig /renew"
+      2 Remove the Ethernet cable, restart the DUT and connect back Ethernet cable to PC
+      3 After \~30sec, enter "ipconfig" command from PC command prompt
+      4 Repeat 1-4 above steps until you get IP address range start from "192.168. \* . \* ".
 
 <p align="center">
 <img src="images/image13.png" width=480>
@@ -362,6 +362,7 @@ after reset.
 <p align="center">
 <img src="images/image22.png" width=480>
 </p>
+
    * Connect Ethernet interface of bridge board/DUT to PC via RJ45 cable
    * Make sure Ethernet client also gets the IP from AP (mobile Hotspot)
    * Connect to mobile Hotspot from 2^nd^ phone over WiFi.
