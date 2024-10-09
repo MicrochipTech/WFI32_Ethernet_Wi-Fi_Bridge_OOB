@@ -36,8 +36,6 @@ via Ethernet can easily access shared resources, cloud services, and
 streaming capabilities, enhancing their functionality without direct
 Wi-Fi capabilities.
 
-\[sagar\]Hardware user guide link will be provided here
-
 # Overview
 
 Network bridging is a function that creates a single, aggregate
@@ -102,8 +100,6 @@ significantly improving user experience and productivity
 <img src="images/image3.png" width=480>
 </p>
 
-\[sagar\] Curiosity picture will be replaced with Bridge board image
-
 ## Soft-AP mode without DHCP Server
 
 The Bridge can be configured to obtain an IP address from an existing
@@ -123,8 +119,6 @@ connectivity and resource sharing across network.
 <p align="center">
 <img src="images/image4.png" width=480>
 </p>
-
-\[sagar\] Curiosity picture will be replaced with Bridge board image
 
 ## STA mode
 
@@ -150,9 +144,6 @@ counterparts.
 <img src="images/image5.png" width=480>
 </p>
 
-
-\[sagar\] Curiosity picture will be replaced with Bridge board image
-
 ## UART Boot Loader
 
 The Preloaded binary on the bridge board includes functionality that
@@ -170,15 +161,9 @@ to upgrade the firmware.
 
 ## Command Line Interface
 
-Bridge board is equipped with a command line interface (CLI)
-accessible via UART, enabling users to configure Wi-Fi, bridge and
-TCP/IP settings in real-time. This feature allows users to make
-adjustment and experiment without the need to setup build environment,
-significantly simplifying the process of fine-tuning device
-parameters.
-
+Bridge board is equipped with a command line interface (CLI)accessible via UART,
 CLI command/response enables users automate the Bridge operation programmatically,
-also helps to troubleshoot issues, and adapt settings on-the-fly, enhancing the
+also helps to troubleshoot issues, and adapt TCPIP settings on-the-fly, enhancing the
 overall development and deployment experience. This flexibility is
 especially beneficial for rapid prototyping and iterative testing, as
 user can implement the changes immediately and observe their effects.
