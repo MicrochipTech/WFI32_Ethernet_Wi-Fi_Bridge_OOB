@@ -15,8 +15,6 @@ Forum](https://www.microchip.com/forums/f545.aspx).
 
 # Introduction
 
-\[sagar\] is Board picture is required here?*
-
 The Ethernet to Wi-Fi Bridge Board is an affordable, compact, and
 user-friendly development reference design that enables Ethernet
 devices to connect via RJ45 cable and extend their network by linking
@@ -42,8 +40,7 @@ Wi-Fi capabilities.
 
 # Overview
 
-From [wikipedia](https://en.wikipedia.org/wiki/Bridging_(networking)),
-the network bridging is a function that creates a single, aggregate
+Network bridging is a function that creates a single, aggregate
 network from more than two communication networks.
 
 Routing and bridging are often misinterpreted as the same function.
@@ -55,29 +52,13 @@ connects two separate networks as if they were a single network.
 <img src="images/image1.png" width=480>
 </p>
 
-Bridging is independent of IP addresses. With one or more wireless
-segments in the bridged network, the device can be called a wireless
-bridge.
-
-Below are the key points to consider while creating a bridging
-project:
-   * The bridge knows only MAC addresses and doesn\'t know anything else
-   * The bridge never forwards a packet back to the interface the packet came from to avoid loops
-   * If the packet destination (MAC) address is multicast or broadcast,the packet will be forwarded on all the other interfaces
-   * It will be passed internally to the stack running on top of the bridge too for internal processing
-   * If the packet destination is unicast:
-      * If it is an address of one of the interfaces on the bridge host,the packet will be passed for internal processing
-      * If it is the address of a host that the MAC bridge knows about,then the packet will be forwarded only on that interface
-      * The bridge knows where various hosts are by looking at the source MAC address of the incoming packets
-      * Otherwise, it will be forwarded on all interfaces
-
 # Ethernet to Wi-Fi Bridge Features
 
 ## Hardware Features of Reference Bridge Board 
 
-   * WFI32E01PE Wi-Fi® RF Module
+   * WFI32E01PE MCU with Inegrated WiFi
    * Microchip SST26VF032B 32 Mb External SPI Flash
-   * On-board Ethernet-PHY using LAN8720A with Integrated Magnetic RJ45 with LED
+   * On-board LAN8720A Ethernet-PHY with Integrated Magnetic RJ45 and LED
    * USB or External Powered at 3.3V Power Supply
    * Red Power LED
    * Two User LEDs
@@ -89,14 +70,12 @@ project:
 <img src="images/image2.png" width=480>
 </p>
 
-## Configure the Bridge in Real Time
-
-The bridge board comes with preloaded executables, allowing users to
-easily configure the device through a command line interface via UART.
-Users can switch between SoftAP and STA modes, adjusting TCPIP stack,
-firmware upgrade and many more in real time without needing to
-recompile the projects. Refer "command Line Interface" section for
-more details.
+## Bridge Application Features
+   * Configure Soft-AP mode with Active DHCP Server in run time
+   * Configure Soft-AP mode without Active DHCP Server in run time 
+   * Configure STA-mode in run time
+   * Firmware upgrade through UART
+   * Command line interface
 
 ## Soft-AP mode with Active DHCP Server
 
@@ -154,8 +133,7 @@ need to rebuild the project. Once the bridge's operating is changes,
 the Wi-Fi configuration settings are saved in non-volatile memory
 (NVM), ensuring that these settings persist through reboots.
 
-However, due to certain limitation, MAC packets are currently routed
-through the application layer, rather than at MAC level. In STA mode,
+In STA mode, MAC packets are currently routed through the application layer, rather than at MAC level. In STA mode,
 the bridge allows Ethernet devices to connect to an existing Access
 Point (AP). This setup facilitates direct communication and resource
 sharing with other devices on the network, significantly enhancing
@@ -199,8 +177,8 @@ adjustment and experiment without the need to setup build environment,
 significantly simplifying the process of fine-tuning device
 parameters.
 
-With the CLI, users can quickly test different configuration,
-troubleshoot issues, and adapt settings on-the-fly, enhancing the
+CLI command/response enables users automate the Bridge operation programmatically,
+also helps to troubleshoot issues, and adapt settings on-the-fly, enhancing the
 overall development and deployment experience. This flexibility is
 especially beneficial for rapid prototyping and iterative testing, as
 user can implement the changes immediately and observe their effects.
