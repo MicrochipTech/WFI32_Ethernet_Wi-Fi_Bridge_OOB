@@ -97,7 +97,7 @@ streaming data, the bridge facilitates smooth interactions,
 significantly improving user experience and productivity
 
 <p align="center">
-<img src="images/image3.png" width=480>
+<img src="images/SoftAP_DHCP.png" width=480>
 </p>
 
 ## Soft-AP mode without DHCP Server
@@ -117,7 +117,7 @@ user can enjoy a more cohesive network experience with improved
 connectivity and resource sharing across network.
 
 <p align="center">
-<img src="images/image4.png" width=480>
+<img src="images/SoftAP_WO_DHCP.png" width=480>
 </p>
 
 ## STA mode
@@ -141,7 +141,7 @@ allowing devices to interact efficiently with both wired and wireless
 counterparts.
 
 <p align="center">
-<img src="images/image5.png" width=480>
+<img src="images/STA_mode.png" width=480>
 </p>
 
 ## UART Boot Loader
