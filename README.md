@@ -211,7 +211,54 @@ optimizing their bridge boards performance.
 ## Software Requirements
    * Tera Term/Any serial terminal
    * Python (For Firmware upgrade)
+# ping/iPerf Test
+   * ping/iperf test to assess Eth-to-WiFi bridge functionality
+   * Ping from WLAN client (STA-2) to Ethernet client or vise-versa (from Ethernet client to WLAN client)
+   * Example - ping test from Ethernet client to WLAN client
+      * \>ping \<wireless LAN client IP address\>
 
+<p align="center">
+<img src="images/image14.png" width=480>
+</p>
+
+   * ping test from wireless client to Ethernet client
+
+Install "ping" app in iPhone, open application from iPhone and enter
+ping \<Ethernet client IP address\>
+
+   * Ipref test
+      * Download ipref3.10_64bit for windows PC
+      * Install "iPerf" app in iPhone
+      * Connect Ethernet client over RJ45 cable
+      * Make sure Ethernet client gets IP address range starts from "192.168. \* . \* "
+      * Open iPhone and connect WiFi to Bridge board/DUT as a wireless client
+      * Open command prompt from PC ( which is Ethernet client in this example ) and run iPerf server
+
+<p align="center">
+<img src="images/image15.png" width=480>
+</p>
+
+   * Open iPerf application from iPhone, enter server IP (Ethernet client
+    is Server in this scenario) with proper port number as below pic and
+    click "start"
+
+<p align="center">
+<img src="images/image16.png" width=480>
+</p>
+
+   * Server start receiving/sending bytes as shown below
+
+<p align="center">
+<img src="images/image17.png" width=480>
+</p>
+
+<p align="center">
+<img src="images/image18.png" width=480>
+</p>
+
+   * Refer Try out section in this link for more details
+    <https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge?tab=readme-ov-file>
+	
 # How to Run Bridge Application (OOB Demo)
 
 ## Hardware and Software setup/Precondition 
@@ -254,53 +301,7 @@ optimizing their bridge boards performance.
 
    * Connect one Client (STA-2) to Bridge/DUT wirelessly
    * Use Android/iPhone, enable WiFi and connect to "DEMO_Wi-Fi_ETH_BRIDGE"
-   * You can run the ping test/iperf test to assess Eth-to-WiFi bridge
-   * Ping from wireless client (STA-2) to Ethernet client or vise-versa (from Ethernet client to wireless client)
-   * Example - ping test from Ethernet client to wireless client (STA-2)
-      * \>ping \<wireless client IP address\>
-
-<p align="center">
-<img src="images/image14.png" width=480>
-</p>
-
-   * ping test from wireless client to Ethernet client
-
-Install "ping" app in iPhone, open application from iPhone and enter
-ping \<Ethernet client IP address\>
-
-   * Ipref test
-      * Download ipref3.10_64bit for windows PC
-      * Install "iPerf" app in iPhone
-      * Connect Ethernet client over RJ45 cable and Reboot the Bridge
-        board/DUT
-      * Make sure Ethernet client gets IP address range starts from "192.168. \* . \* "
-      * Open iPhone and connect WiFi to Bridge board/DUT as a wireless client
-      * Open command prompt from PC ( which is Ethernet client in this example ) and navigate to iPerf folder and run iPerf server
-
-<p align="center">
-<img src="images/image15.png" width=480>
-</p>
-
-   * Open iPerf application from iPhone, enter server IP (Ethernet client
-    is Server in this scenario) with proper port number as below pic and
-    click "start"
-
-<p align="center">
-<img src="images/image16.png" width=480>
-</p>
-
-   * Server start receiving/sending bytes as shown below
-
-<p align="center">
-<img src="images/image17.png" width=480>
-</p>
-
-<p align="center">
-<img src="images/image18.png" width=480>
-</p>
-
-   * Refer Try out section in this link for more details
-    <https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge?tab=readme-ov-file>
+   * After successful connection, perform Ping/iPerf Test ( Refer "ping/iPerf Test" section)
 
 ## AP mode without DHCP Server
    * Reboot the Bridge device and connect external AP with DHCP server enabled via RJ45 cable. (refer above picture shows )
@@ -332,7 +333,8 @@ ping \<Ethernet client IP address\>
 </p>
    * Use one more RJ45 cable to connect between external AP and Ethernet client ( PC in our setup, refer the above pic )
    * Open command prompt from PC and enter "ipconfig" to make sure IP is provided from external AP.
-   * Connect one more wireless client (iPhone) to Bridge board/DUT and perform "ping" or "iPerf" test.
+   * Connect one more wireless client (iPhone) to Bridge board/DUT.
+   * Perfom ping/iPerf Test (Refer ping/iPerf Test section)   
 
 ## STA mode 
    * Enable mobile Hotspot and provide required credentials to connect bridge board/DUT as client device.
@@ -350,15 +352,131 @@ after reset.
 
    * Connect Ethernet interface of bridge board/DUT to PC via RJ45 cable
    * Make sure Ethernet client also gets the IP from AP (mobile Hotspot)
-   * Connect to mobile Hotspot from 2^nd^ phone over WiFi.
-   * Perform ping/iPerf test from Wi-Fi end node device(2^nd^ phone used as client device) to Ethernet client device( PC in this Scenario )
+   * Connect to mobile Hotspot from 2nd phone over WiFi.
+   * Perform ping/iPerf test from Wi-Fi end node device ( Refer ping/iPerf Test section)
 
 # HW/SW Requirements for Building Custom Bridge Application
 
-# How to Build Custom Bridge Application
+## Hardware Requirements
+   * Ethernet to Wi-Fi Bridge Board (EV49N51A)
+   * USB Type-C Cable for Power
+   * USB-UART converter cable
+   * RJ45 cable
+   * Host PC
+   * Programmer/Debugger – snap, ICD-4/5/PICkit-5 (Interface board if you are using snap/ICD )
+   * Micro USB cable
+   
+## Software Requirements
+   * MPLAB X IDE v6.20
+   * XC32 v4.40 Compiler
+   * PIC32MZ-W_DFP v1.8.326
+   * MCC v5.50
+   * Tera Term/Any serial terminal with 115200 baud-rate
+   * Python v3.12 and above (For Firmware upgrade)
+   * Harmony component ( https://bitbucket.microchip.com/projects/MH3 search component name)
+      * Bootloader v3.8.0-rc.1 
+      * CMSIS_5 v5.9.0 (https://github.com/ARM-software/CMSIS_5)
+      * cmsis-freertos 10.3.1
+      * core v3.13.2
+      * crypto v3.8.1
+      * csp v3.18.2
+      * dev_packs v3.18.0-rc.1
+      * mhc-core v3.8.4
+      * net v3.11.0
+      * wireless_system_pic32mzw1_wfi32e01 v3.8.0
+      * wireless_wifi v3.10.0
+      * wolfssl v5.4.0
+   * git 2.46.0 and above (Optional)
 
+# How to Build Custom Bridge Application
+   * clone or download Bridge project from here https://github.com/MicrochipTech/WFI32_Ethernet_Wi-Fi_Bridge_OOB
+   * Open project in MPLAB X IDE (WFI32_Ethernet_Wi-Fi_Bridge_OOB\firmware\pic32mz_w1_Wifi_Eth_Bridge_freertos.X)
+   * Make sure your DFP and compiler are properly selected
+   
+<p align="center">
+<img src="images/image23.png" width=480>
+</p>
+
+   * Clink on MPLAB Code Configurator v5 to see or modify Harmony configuration
+
+<p align="center">
+<img src="images/image24.png" width=480>
+</p>
+      * WIFI Provisioning Service stored in NVM
+
+<p align="center">
+<img src="images/image25.png" width=480>
+</p>	  
+      * SPI settings (High speed SPI Enabled)
+
+<p align="center">
+<img src="images/image26.png" width=480>
+</p>
+      * WiFi service settings
+
+<p align="center">
+<img src="images/image27.png" width=480>
+</p>
+      * Application Layer Overview
+<p align="center">
+<img src="images/image28.png" width=480>
+</p>
+      * TCPIP settings
+<p align="center">
+<img src="images/image29.png" width=480>
+</p>
+<p align="center">
+<img src="images/image30.png" width=480>
+</p>
+      * System Settings
+<p align="center">
+<img src="images/image31.png" width=480>
+</p>
+      * Network Settings
+<p align="center">
+<img src="images/image32.png" width=480>
+</p>
+      * MAC-0 Instance
+<p align="center">
+<img src="images/image33.png" width=480>
+</p>
+      * MAC-1 Instance
+<p align="center">
+<img src="images/image34.png" width=480>
+</p>	  
+      * LAN8720A settings
+<p align="center">
+<img src="images/image35.png" width=480>
+</p>	
+      * FreeRTOS settings
+<p align="center">
+<img src="images/image36.png" width=480>
+</p>
+      * System Settings
+<p align="center">
+<img src="images/image37.png" width=480>
+</p>
+   * User can customize these MCC settings based on requirement and generate the code
+   * Click “Generate” button to generate code
+<p align="center">
+<img src="images/image38.png" width=480>
+</p>
+   * Merge carefully if needed or you can close “Merge[MCC]” window to ignore the changes
+   * Connect Programmer/Debugger before you build the project (snap/ICD-4/5/PICkit-5), power on the board
+      * If MPLAB is not detecting any of your debugger, restart MPLAB without disconnecting debugger from DUT and try again
+   * Click Make and program Device Main Project in IDE
+<p align="center">
+<img src="images/image39.png" width=480>
+</p>
+   * On successful programming
+<p align="center">
+<img src="images/image40.png" width=480>
+</p>
+   * Perform Bridge operation as per the “How to Run the Bridge Application (OOB)”
 # How to Upgrade Firmware over UART
 
 # Reference
+   * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge
+   * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge_For_Ethernet_End_Node
 
-# Unknow Issue/Limitation
+# know Issue/Limitation
