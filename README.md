@@ -486,6 +486,7 @@ after reset.
 <img src="images/image42.png" width=480>
 </p>  
    * wait for Firmware upgrade and restart the DUT
+
 # Reference
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge_For_Ethernet_End_Node
