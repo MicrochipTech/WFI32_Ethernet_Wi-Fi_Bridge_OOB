@@ -473,8 +473,19 @@ after reset.
 <img src="images/image40.png" width=480>
 </p>
    * Perform Bridge operation as per the “How to Run the Bridge Application (OOB)”
-# How to Upgrade Firmware over UART
 
+# How to Upgrade Firmware over UART
+   * Enter into boot loader mode by entering command ":\> btlmode" in DUT command prompt
+   * Disconnect the terminal connection   
+<p align="center">
+<img src="images/image41.png" width=480>
+</p>   
+   * Open command prompt from host PC and navigate bootloader\tools\ directory and run python script
+      * python btl_host.py -v -i COM3 -d pic32mzw -a 0x90000000 -f "<folder path>\firmware\pic32mz_w1_Wifi_Eth_Bridge_freertos.X\dist\pic32mz_w1_eth_wifi_freertos\production\pic32mz_w1_Wifi_Eth_Bridge_freertos.X.production.bin"
+<p align="center">
+<img src="images/image42.png" width=480>
+</p>  
+   * wait for Firmware upgrade and restart the DUT
 # Reference
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge_For_Ethernet_End_Node
