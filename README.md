@@ -493,6 +493,7 @@ after reset.
 
 # Limitations
    * Only one Ethernet device can be connected to the bridge when it operates in STA mode. Routers/switches are not supported for connecting multiple Ethernet devices.
+   * Concurrent operating modes are not supported(Both AP and STA simultaneously )   
    * DHCPS from the Ethernet interface is enabled when Bridge is switch to STA mode.
    * MAC packet routing is handled at the application level in STA mode.
    * The Bridge's end node (WLAN/Ethernet) cannot communicate with the Bridge device.
