@@ -373,7 +373,7 @@ after reset.
    * MCC v5.50
    * Tera Term/Any serial terminal with 115200 baud-rate
    * Python v3.12 and above (For Firmware upgrade)
-   * Harmony component ( https://bitbucket.microchip.com/projects/MH3 search component name)
+   * Harmony component
       * Bootloader v3.8.0-rc.1 
       * CMSIS_5 v5.9.0 (https://github.com/ARM-software/CMSIS_5)
       * cmsis-freertos 10.3.1
@@ -491,4 +491,14 @@ after reset.
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge
    * https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge_For_Ethernet_End_Node
 
-# know Issue/Limitation
+# Limitations
+   * Only one Ethernet device can be connected to the bridge when it operates in STA mode. Routers/switches are not supported for connecting multiple Ethernet devices.
+   * DHCPS from the Ethernet interface is enabled when Bridge is switch to STA mode.
+   * MAC packet routing is handled at the application level in STA mode.
+   * The Bridge's end node (WLAN/Ethernet) cannot communicate with the Bridge device.
+   
+# Know Issues
+   * Up to 2-3 wirelss stations can connect to the bridge when it operates in SoftAP mode.
+   * Sometimes, there are internet connectivity issues when the bridge is in STA mode.
+   * Project Debugging features are not supported.
+   * In STA mode, the bridge device does not receive an IP address from the AP when it has an Ethernet node connection.
