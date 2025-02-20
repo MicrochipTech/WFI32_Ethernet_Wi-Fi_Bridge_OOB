@@ -496,11 +496,7 @@ after reset.
 # Limitations
    * Only one Ethernet device can be connected to the bridge when it operates in STA mode. Routers/switches are not supported for connecting multiple Ethernet devices.
    * Concurrent operating modes are not supported(Both AP and STA simultaneously)   
-   * DHCPS from the Ethernet interface is enabled when Bridge is switch to STA mode.
-   * The Bridge's end node (WLAN/Ethernet) cannot communicate with the Bridge device.
+   * The Bridge's end node (WLAN/Ethernet) cannot communicate with the Bridge device in STA mode.
    
 # Known Issues
-   * Up to 2-3 wirelss stations can connect to the bridge when it operates in SoftAP mode.
-   * Sometimes, there are internet connectivity issues when the bridge is in STA mode.
-   * Project Debugging features are not supported.
    * In STA mode, the bridge device fails to obtain an IP address from the AP when an Ethernet device already connected to the bridge's Ethernet interface.
