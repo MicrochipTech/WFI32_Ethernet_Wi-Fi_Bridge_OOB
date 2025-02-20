@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project>                                  
+  <executable name="dist/pic32mz_w1_eth_wifi_freertos/production/pic32mz_w1_Wifi_Eth_Bridge_freertos.X.production.elf">                 
+    <memory name="program">                 
+      <units>bytes</units>                 
+      <length>1045632</length>                 
+      <used>762944</used>                     
+      <free>282688</free>                     
+    </memory>                              
+    <memory name="data">              
+      <units>bytes</units>                 
+      <length>261632</length>                 
+      <used>229584</used>                     
+      <free>32048</free>                     
+    </memory>                              
+  </executable>                            
+</project>                                 

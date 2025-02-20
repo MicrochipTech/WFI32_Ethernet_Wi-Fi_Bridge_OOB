@@ -143,7 +143,7 @@ MEMORY
   config_BFC55FBC             : ORIGIN = 0xBFC55FBC, LENGTH = 0x4
   config_BFC55FDC             : ORIGIN = 0xBFC55FDC, LENGTH = 0x4
 */
-  kseg0_data_mem       (w!x)  : ORIGIN = 0x80000000 + 16, LENGTH = 0x40000 - 16
+  kseg0_data_mem       (w!x)  : ORIGIN = 0x80000000 + 512, LENGTH = 0x40000 - 512
   sfrs                        : ORIGIN = 0xBF800000, LENGTH = 0x100000
 /*
   configsfrs_BFC55E88         : ORIGIN = 0xBFC55E88, LENGTH = 0x18

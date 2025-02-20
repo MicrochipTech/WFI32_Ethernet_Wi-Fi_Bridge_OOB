@@ -284,6 +284,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_TICK_RATE_HZ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
+  &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TICK_RATE_HZ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;250&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/FreeRTOS&gt;
+&lt;/FreeRTOS&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_TOTAL_HEAP_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
@@ -293,7 +304,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;100000&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;180000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -304,7 +315,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_USE_MALLOC_FAILED_HOOK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -450,7 +461,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;ENABLE_SYS_CACHE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -758,6 +769,45 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="SYS_CACHE_DEF"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;SYS_CACHE_DEF&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="SYS_CACHE_HEADER"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;SYS_CACHE_HEADER&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="SYS_CACHE_SOURCE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;SYS_CACHE_SOURCE&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="SYS_DEBUG_DEF_HEADER"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;SYS_DEBUG_DEF_HEADER&quot;&gt;
@@ -865,24 +915,25 @@
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;FreeRTOS&quot; x=&quot;244&quot; y=&quot;359&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;HarmonyCore&quot; x=&quot;730&quot; y=&quot;300&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;core&quot; x=&quot;553&quot; y=&quot;119&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;core_timer&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;dfp&quot; x=&quot;232&quot; y=&quot;302&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;drvExtPhyLan8720&quot; x=&quot;352&quot; y=&quot;457&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drvMiim&quot; x=&quot;225&quot; y=&quot;479&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;drvPic32mEthmac&quot; x=&quot;464&quot; y=&quot;435&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;drvWifiPic32mzw1&quot; x=&quot;30&quot; y=&quot;300&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;drv_ba414e&quot; x=&quot;770&quot; y=&quot;180&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;lib_crypto&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;nvm&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_command&quot; x=&quot;390&quot; y=&quot;100&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;190&quot; y=&quot;100&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_debug&quot; x=&quot;590&quot; y=&quot;180&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_time&quot; x=&quot;30&quot; y=&quot;100&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;tcpipNetConfig&quot; x=&quot;570&quot; y=&quot;300&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;tcpipStack&quot; x=&quot;390&quot; y=&quot;219&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;uart1&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;TCP/IP STACK&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;core&quot; x=&quot;553&quot; y=&quot;119&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core_timer&quot; x=&quot;160&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;dfp&quot; x=&quot;232&quot; y=&quot;302&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drvExtPhyLan8720&quot; x=&quot;352&quot; y=&quot;457&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;drvMiim&quot; x=&quot;225&quot; y=&quot;479&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;drvPic32mEthmac&quot; x=&quot;464&quot; y=&quot;435&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;drvWifiPic32mzw1&quot; x=&quot;30&quot; y=&quot;300&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;drv_ba414e&quot; x=&quot;770&quot; y=&quot;180&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;lib_crypto&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;nvm&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_command&quot; x=&quot;390&quot; y=&quot;100&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_console&quot; x=&quot;190&quot; y=&quot;100&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_debug&quot; x=&quot;590&quot; y=&quot;180&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;30&quot; y=&quot;100&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;tcpipNetConfig&quot; x=&quot;570&quot; y=&quot;300&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tcpipStack&quot; x=&quot;389&quot; y=&quot;219&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;uart1&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
     &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;TCP/IP STACK&quot;&gt;
@@ -904,10 +955,9 @@
     &lt;ComponentGraph dnOrder=&quot;9&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;System Configuration&quot; x=&quot;273&quot; y=&quot;56&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot; x=&quot;42&quot; y=&quot;109&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;spi1&quot; x=&quot;460&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;sysWifiPic32mzw1&quot; x=&quot;588&quot; y=&quot;179&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;sysWifiProvPic32mzw1&quot; x=&quot;18&quot; y=&quot;28&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;spi1&quot; x=&quot;460&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;sysWifiPic32mzw1&quot; x=&quot;307&quot; y=&quot;190&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;sysWifiProvPic32mzw1&quot; x=&quot;18&quot; y=&quot;28&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -941,6 +991,84 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_HEADER_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_HEADER_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_LOCAL_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_LOCAL_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_PIC32MZ_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_PIC32MZ_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_SOURCE_PIC32MZ_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_SOURCE_PIC32MZ_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_SOURCE_PIC32MZ_S"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_SOURCE_PIC32MZ_S&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CACHE_SYSTEM_DEF_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CACHE_SYSTEM_DEF_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="COMPILER_CHOICE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;COMPILER_CHOICE&quot;&gt;
@@ -968,6 +1096,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_HSSPIEN&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;ON&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_PRECON_PFMWS"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_PRECON_PFMWS&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;5&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -1079,6 +1218,30 @@
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;100000000&quot;/&gt;
     &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="DATA_CACHE_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;DATA_CACHE_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="DEVICE_CACHE_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;DEVICE_CACHE_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -1955,6 +2118,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="INSTRUCTION_CACHE_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;INSTRUCTION_CACHE_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="INTERRUPTS_ASM"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;INTERRUPTS_ASM&quot;&gt;
@@ -2331,6 +2505,28 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="SPLLCON_SPLLPOSTDIV1_VALUE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;SPLLCON_SPLLPOSTDIV1_VALUE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;6&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="SPLLCON_VALUE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;SPLLCON_VALUE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;21586017&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="TIMER_1_INTERRUPT_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;TIMER_1_INTERRUPT_ENABLE&quot;&gt;
@@ -2529,6 +2725,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="USE_CACHE_MAINTENANCE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;USE_CACHE_MAINTENANCE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="WIFI_CLOCK_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;WIFI_CLOCK_ENABLE&quot;&gt;
@@ -2569,7 +2776,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;XC32_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;160000&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;80000&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;1000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5464,6 +5671,7 @@
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_CALLOC_FUNC&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sysWifiPic32mzw1&quot; value=&quot;calloc&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;myCalloc&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -5527,6 +5735,7 @@
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_FREE_FUNC&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sysWifiPic32mzw1&quot; value=&quot;free&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;vPortFree&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -5628,6 +5837,7 @@
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_MALLOC_FUNC&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sysWifiPic32mzw1&quot; value=&quot;malloc&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;pvPortMalloc&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -5685,6 +5895,17 @@
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NET_INTERFACE_NUM&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;2&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/tcpipStack&gt;
+&lt;/tcpipStack&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipStack" name="TCPIP_STACK_RTOS_DELAY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
+  &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_RTOS_DELAY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;3&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -6101,7 +6322,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\FreeRTOSConfig.h</file>
-         <hash>e5501c9ed373103af4478716fe931349ffa93bc72c644eba190fbec88d63da36</hash>
+         <hash>38aeb9283956122aae834eb49721cf11add5db1b11df1d6ae2f809fce8ac2bdb</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\config.h</file>
@@ -6109,7 +6330,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\configuration.h</file>
-         <hash>4b42a6765463e75c611fac836ce7f6f772e79702fa15254007b91cf2ae994a44</hash>
+         <hash>753a1906189cb9a3c86a0dc1a599d6c1d177d4b2c06e81f6f6077b865b6763d9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\crypto\crypto.h</file>
@@ -6121,11 +6342,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\definitions.h</file>
-         <hash>e0d0ea1f7579ba1f4b1a1e5d173ab8e004fdd8eb5d7da14bd54b7a27393b36e4</hash>
+         <hash>a320f5003aa30471aa3ab7712cc0ad89d4657e4cc10173fc29e681e3eb9b2912</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\device.h</file>
          <hash>10ec93c43a7b158a129ae05bd8f4a59ff5bcf3d0f3f062fdd64c374bc2d42099</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\device_cache.h</file>
+         <hash>fd0e9c9a7fbeb01fb289eecda8b0f0b3cfe0b86da13bc26801f611faa3b9a74c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\driver\ba414e\drv_ba414e.h</file>
@@ -7000,6 +7225,26 @@
          <hash>ed773c18bcb76a06cb673da8ddabc215598912f30a7ccc69f9f56643b6766ce0</hash>
       </entry>
       <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\cache\plib_cache.c</file>
+         <hash>500634fa5c5cb4efb91faa7a54e3ccbb26ad7ff6d188ff0e91cbaabc606cf054</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\cache\plib_cache.h</file>
+         <hash>da01fae7f39626c9f25c0c8f4f9a8cf25ed0c4b8dd6c0d4bae146210efe8da46</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\cache\plib_cache_local.h</file>
+         <hash>91d5a1a9920a5aea939f16fe36e9346b60ba3a8577817f24c0e8198cba2e089d</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\cache\plib_cache_pic32mz.S</file>
+         <hash>227a6c622b0100cceef847043fb5afdace49f27df33d00e61d413bc9da34932d</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\cache\plib_cache_pic32mz.h</file>
+         <hash>e401b896c670e8d0e1714eafc2b93a12b1fe6592783951e2353471bb4ced58e8</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\peripheral\clk\plib_clk.c</file>
          <hash>c8e4895bf747812314a448499328529936f4bf84f3bdbbec9841a0ab831e57de</hash>
       </entry>
@@ -7074,6 +7319,14 @@
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\sys_tasks.h</file>
          <hash>db92e5126443fbe3f721921f12cd1c0ef9b28b9e26e1d77295c7f2bf925b1ca8</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\system\cache\sys_cache.c</file>
+         <hash>53fd36c6040f1cd83a5a625dc5dbf3b9a1f337988e5c10b776da9235f7b7579e</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_w1_eth_wifi_freertos\system\cache\sys_cache.h</file>
+         <hash>b4b3a4e7434759c9bbcd3c6a0ab97558eb2a007f083a4eb76dbedcb2e2c3d86b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\system\command\src\sys_command.c</file>
@@ -7221,7 +7474,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\tasks.c</file>
-         <hash>00da0290595c720a10caaa866c2e60009ba7fe26b9aa18cdb3d026b49a84b60e</hash>
+         <hash>6fb3ae0eedc0b95dc06033cc1193a4f1cd08202bfd57fa2d0f5bc27c42f60839</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_w1_eth_wifi_freertos\toolchain_specifics.h</file>

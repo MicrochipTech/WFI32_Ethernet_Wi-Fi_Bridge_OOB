@@ -129,7 +129,7 @@ bool BRIDGE_pktEthHandler(TCPIP_NET_HANDLE hNet, struct _tag_TCPIP_MAC_PACKET* r
 TCPIP_MAC_RES BRIDGE_ETHMAC_PIC32MACPacketSingleTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * pNewPacket);
 
 SYS_STATUS BRIDGE_is_TCPSTACK_Ready(void);
-
+static bool isWlanConnEvent = false;
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions
@@ -198,6 +198,7 @@ void BRIDGE_TcpipStack_EventHandler(TCPIP_NET_HANDLE hNet, TCPIP_EVENT event, co
     if (event & TCPIP_EV_CONN_ESTABLISHED) {
         SYS_CONSOLE_PRINT("connection established\r\n");
         if (hNet == brdg.eth_net_hdl) {
+            //SYS_CONSOLE_PRINT("Eth event\r\n");
             brdg.eth_online = true;
             
             for (ix = 0; ix < TX_WLAN_LIST_SIZE; ix++) {
@@ -209,15 +210,19 @@ void BRIDGE_TcpipStack_EventHandler(TCPIP_NET_HANDLE hNet, TCPIP_EVENT event, co
             }
             
         } else if (hNet == brdg.wlan_net_hdl) {
-            SYS_CONSOLE_PRINT("action unknown1\r\n");
+           // SYS_CONSOLE_PRINT("Wlan event\r\n");
+            isWlanConnEvent = true;
         }
 
     } else if (event & TCPIP_EV_CONN_LOST) {
         SYS_CONSOLE_PRINT("connection lost\r\n");
         if (hNet == brdg.eth_net_hdl) {
+            SYS_CONSOLE_PRINT("Eth event\r\n");
+            brdg.state = BRIDGE_STATE_LEAVE_BRIDGE_MODE;
             brdg.eth_online = false; 
         } else if (hNet == brdg.wlan_net_hdl) {
-            SYS_CONSOLE_PRINT("action unknown2\r\n");
+           // SYS_CONSOLE_PRINT("Wlan event\r\n");
+            isWlanConnEvent = false;
         }
     } else {
         SYS_CONSOLE_PRINT("TCP Stack Event Handler %s Unknown event = %d\r\n", netName, event);
@@ -283,7 +288,7 @@ void BRIDGE_Tasks(void) {
 
     if (brdg.state != old_state) {
         old_state = brdg.state;
-        SYS_CONSOLE_PRINT("new state: %s\n\r", &BridgeStates[brdg.state][0]);
+        SYS_CONSOLE_PRINT("New State: %s\n\r", &BridgeStates[brdg.state][0]);
     }
     /* Check the application's current state. */
     switch (brdg.state) {
@@ -299,7 +304,8 @@ void BRIDGE_Tasks(void) {
                 break;
             if( g_wifiProvSrvcAppConfigRead.mode != SYS_WIFIPROV_STA )
                 break;
-            SYS_CONSOLE_PRINT("STA: External Packet Processing: Bridge State Init\n\r");
+            SYS_CONSOLE_PRINT("STA mode: Bridge State Init\n\r");
+            BRIDGE_Initialize();
             if (appInitialized) {
                 brdg.eth_dhcp_client_timeout = BRDG_DHCP_CLIENT_TIMEOUT;
                 brdg.state = BRIDGE_STATE_WAIT_FOR_TCP_STACK_READY;
@@ -313,11 +319,12 @@ void BRIDGE_Tasks(void) {
             if (BRIDGE_is_TCPSTACK_Ready() == SYS_STATUS_READY) {
 
                 SYS_CONSOLE_PRINT("======================================================\n\r");
-                SYS_CONSOLE_PRINT("L2 Bridge Build Time  " __DATE__ " " __TIME__ "\n\r");
+                //SYS_CONSOLE_PRINT("L2 Bridge Build Time  " __DATE__ " " __TIME__ "\n\r");
 
                 SYS_CONSOLE_PRINT("TCP Stack Ready\n\r");
                 SYS_CONSOLE_PRINT("Handle: eth %04x wlan %04x\n\r", brdg.eth_net_hdl, brdg.wlan_net_hdl);
-
+                TCPIP_DHCPS_Disable(brdg.eth_net_hdl);
+                TCPIP_DHCP_Enable(brdg.eth_net_hdl);
                 brdg.state = BRIDGE_STATE_FILTER_ARP; 
             }
             break;
@@ -347,15 +354,28 @@ void BRIDGE_Tasks(void) {
         case BRIDGE_STATE_LEAVE_BRIDGE_MODE:
             TCPIP_STACK_PacketHandlerDeregister(brdg.wlan_net_hdl, BRIDGE_pktWlanHandler);
             TCPIP_STACK_PacketHandlerDeregister(brdg.eth_net_hdl, BRIDGE_pktEthHandler);
-            TCPIP_DHCP_Disable(brdg.eth_net_hdl);
-            brdg.state = BRIDGE_STATE_IDLE;
+            //TCPIP_DHCP_Disable(brdg.eth_net_hdl);
+            brdg.state = BRIDGE_STATE_FILTER_ARP;
             break;
 
         case BRIDGE_STATE_START_BRIDGING:
             TCPIP_STACK_PacketHandlerDeregister(brdg.eth_net_hdl, pktEthHandler);   // This line can be moved inside the handler(pktEthHandler) to avoid more repeat 
-            if (SYS_WIFI_GetStatus(sysObj.syswifi) > SYS_WIFI_STATUS_WDRV_OPEN_REQ) 
+            //SYS_CONSOLE_PRINT("WiFI status %d\r\n",SYS_WIFI_GetStatus(sysObj.syswifi));
+            if (SYS_WIFI_GetStatus(sysObj.syswifi) == SYS_WIFI_STATUS_TCPIP_ERROR ) 
+            {
+                SYS_CONSOLE_PRINT("Wi-Fi system service ERROR %d\r\n",SYS_WIFI_GetStatus(sysObj.syswifi));
+                isWlanConnEvent = false;
+                brdg.state = BRIDGE_STATE_LEAVE_BRIDGE_MODE;
+            }
+            else if(isWlanConnEvent && (TCPIP_STACK_NetAddress(brdg.wlan_net_hdl)))
             {
                 brdg.state = BRIDGE_STATE_INIT_BRIDGE_MODE;
+                SYS_CONSOLE_PRINT("Wi-Fi system service STA IP Received %d\r\n",SYS_WIFI_GetStatus(sysObj.syswifi));
+                break;
+            }
+            else
+            {
+                brdg.state = BRIDGE_STATE_START_BRIDGING;
             }
             break;
        
@@ -707,7 +727,7 @@ void BRIDGE_Wifi_Callback(uint32_t event, void * data, void *cookie) {
 
 }
 
-void * myCalloc(size_t n, size_t size) {
+void * myCalloc(size_t n, size_t size) { // calloc
     void * ret_val;
     int count;
 

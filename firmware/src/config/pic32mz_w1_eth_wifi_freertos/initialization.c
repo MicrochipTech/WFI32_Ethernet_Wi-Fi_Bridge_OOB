@@ -46,7 +46,7 @@
 #include "configuration.h"
 #include "definitions.h"
 #include "device.h"
-
+void * myCalloc(size_t, size_t);
 
 // ****************************************************************************
 // ****************************************************************************
@@ -702,8 +702,8 @@ void SYS_Initialize ( void* data )
     CRYPT_WCCB_Initialize();
 
     /* MISRAC 2012 deviation block end */
-    APP_SPI_SST26_Initialize();
-    BRIDGE_Initialize();
+    //APP_SPI_SST26_Initialize();
+   // BRIDGE_Initialize();
 
     EVIC_Initialize();
 

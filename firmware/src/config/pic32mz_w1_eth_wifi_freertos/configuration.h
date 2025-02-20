@@ -183,6 +183,10 @@ extern "C" {
 #define DRV_BA414E_RTOS_TASK_PRIORITY             1	
 
 
+#define SYS_WIFIPROV_NVMADDR        		0x900FF000
+#define SYS_WIFIPROV_SAVECONFIG        			true
+#define SYS_WIFIPROV_SOCKETPORT        		6666
+
 
 /*** ICMPv4 Server Configuration ***/
 #define TCPIP_STACK_USE_ICMP_SERVER
@@ -199,10 +203,6 @@ extern "C" {
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
-
-#define SYS_WIFIPROV_NVMADDR        		0x900FF000
-#define SYS_WIFIPROV_SAVECONFIG        			true
-#define SYS_WIFIPROV_SOCKETPORT        		6666
 
 /*** TCPIP MAC Configuration ***/
 #define TCPIP_EMAC_TX_DESCRIPTORS				    8
@@ -420,11 +420,11 @@ extern "C" {
 /*** TCPIP Heap Configuration ***/
 #define TCPIP_STACK_USE_EXTERNAL_HEAP
 
-#define TCPIP_STACK_MALLOC_FUNC                     malloc
+#define TCPIP_STACK_MALLOC_FUNC                     pvPortMalloc
 
-#define TCPIP_STACK_CALLOC_FUNC                     calloc
+#define TCPIP_STACK_CALLOC_FUNC                     myCalloc
 
-#define TCPIP_STACK_FREE_FUNC                       free
+#define TCPIP_STACK_FREE_FUNC                       vPortFree
 
 
 
