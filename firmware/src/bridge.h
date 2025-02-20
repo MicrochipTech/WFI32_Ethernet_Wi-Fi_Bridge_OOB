@@ -235,7 +235,7 @@ extern "C" {
       Remarks:
         This routine must be called from the SYS_Initialize function.
      */
-
+    void BRIDGE_APP_CMD(void);
     void BRIDGE_Initialize(void);
 
 

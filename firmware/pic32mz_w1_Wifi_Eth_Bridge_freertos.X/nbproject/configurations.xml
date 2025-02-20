@@ -890,7 +890,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-W_DFP" vendor="Microchip" version="1.8.326"/>
+        <pack name="PIC32MZ-W_DFP" vendor="Microchip" version="1.10.334"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

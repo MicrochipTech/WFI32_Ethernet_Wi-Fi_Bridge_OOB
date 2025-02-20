@@ -245,7 +245,12 @@ void BRIDGE_TcpipStack_EventHandler(TCPIP_NET_HANDLE hNet, TCPIP_EVENT event, co
   Remarks:
     See prototype in bridge.h.
  */
-
+void BRIDGE_APP_CMD(void)
+{
+    if (!SYS_CMD_ADDGRP(builtinBridgeCmdTbl, sizeof (builtinBridgeCmdTbl) / sizeof (*builtinBridgeCmdTbl), "bridge", ": Bridge Application Commands")) {
+        SYS_CONSOLE_PRINT("Bridge Application Command Interface Failed");
+    }
+}
 void BRIDGE_Initialize(void) {
 
     /* Place the App state machine in its initial state. */
@@ -266,9 +271,9 @@ void BRIDGE_Initialize(void) {
         brdg.eth_tx_packets[ix] = _TCPIP_PKT_PacketAlloc(sizeof (TCPIP_MAC_PACKET), 1614, 0);
         brdg.eth_tx_packets[ix]->ackParam = (void*) 0xFF;
     }
-    if (!SYS_CMD_ADDGRP(builtinBridgeCmdTbl, sizeof (builtinBridgeCmdTbl) / sizeof (*builtinBridgeCmdTbl), "bridge", ": Bridge Application Commands")) {
-        SYS_CONSOLE_PRINT("Bridge Application Command Interface Failed");
-    }
+//    if (!SYS_CMD_ADDGRP(builtinBridgeCmdTbl, sizeof (builtinBridgeCmdTbl) / sizeof (*builtinBridgeCmdTbl), "bridge", ": Bridge Application Commands")) {
+//        SYS_CONSOLE_PRINT("Bridge Application Command Interface Failed");
+//    }
 
     sprintf(brdg.TimeStr, "%02d:%02d:%02d", brdg.hours, brdg.minutes, brdg.seconds);
 
