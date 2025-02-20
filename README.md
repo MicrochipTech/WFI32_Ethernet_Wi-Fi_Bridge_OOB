@@ -480,8 +480,10 @@ after reset.
 <p align="center">
 <img src="images/image41.png" width=480>
 </p>   
-   * Open command prompt from host PC and navigate bootloader\tools\ directory and run python script
-      * python btl_host.py -v -i COM3 -d pic32mzw -a 0x90000000 -f "<folder path>\firmware\pic32mz_w1_Wifi_Eth_Bridge_freertos.X\dist\pic32mz_w1_eth_wifi_freertos\production\pic32mz_w1_Wifi_Eth_Bridge_freertos.X.production.bin"
+
+   * Open command prompt from host PC and navigate bootloader(Harmony module)\tools\ directory and run python script
+   * Here is gitHub link to download Bootloader module https://github.com/Microchip-MPLAB-Harmony/bootloader
+      python btl_host.py -v -i COM3 -d pic32mzw -a 0x90000000 -f "<folder path>\firmware\pic32mz_w1_Wifi_Eth_Bridge_freertos.X\dist\pic32mz_w1_eth_wifi_freertos\production\pic32mz_w1_Wifi_Eth_Bridge_freertos.X.production.bin"
 <p align="center">
 <img src="images/image42.png" width=480>
 </p>  
