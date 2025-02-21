@@ -370,11 +370,11 @@ after reset.
    * MPLAB X IDE v6.20
    * XC32 v4.40 Compiler
    * PIC32MZ-W_DFP v1.8.326
-   * MCC v5.50
+   * MCC v5.5.1
    * Tera Term/Any serial terminal with 115200 baud-rate
    * Python v3.12 and above (For Firmware upgrade)
    * Harmony component
-      * Bootloader v3.8.0-rc.1 
+      * Bootloader v3.7.0 
       * CMSIS_5 v5.9.0 (https://github.com/ARM-software/CMSIS_5)
       * cmsis-freertos 10.3.1
       * core v3.13.2
@@ -486,7 +486,8 @@ after reset.
       python btl_host.py -v -i COM3 -d pic32mzw -a 0x90000000 -f "<folder path>\firmware\pic32mz_w1_Wifi_Eth_Bridge_freertos.X\dist\pic32mz_w1_eth_wifi_freertos\production\pic32mz_w1_Wifi_Eth_Bridge_freertos.X.production.bin"
 <p align="center">
 <img src="images/image42.png" width=480>
-</p>  
+</p>
+
    * wait for Firmware upgrade and restart the DUT
 
 # Reference
