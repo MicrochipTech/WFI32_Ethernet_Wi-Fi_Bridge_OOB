@@ -260,6 +260,7 @@ ping \<Ethernet client IP address\>
     <https://github.com/MicrochipTech/PIC32MZW1_Ethernet_WIFI_Bridge?tab=readme-ov-file>
 	
 # How to Run Bridge Application (OOB Demo)
+(Ensure the firmware upgrade is completed prior to the OOB experience, and refer to the 'How to Upgrade Firmware over UART' section for detailed instructions)
 
 ## Hardware and Software setup/Precondition 
    * Connect USB-to-UART converter RX to DUT's TX pin and USB-to-UART TX to DUT's RX pin of J203 header.
@@ -380,7 +381,7 @@ after reset.
       * core v3.13.2
       * crypto v3.8.1
       * csp v3.18.2
-      * dev_packs v3.18.0-rc.1
+      * dev_packs v3.18.1
       * mhc-core v3.8.4
       * net v3.11.0
       * wireless_system_pic32mzw1_wfi32e01 v3.8.0
